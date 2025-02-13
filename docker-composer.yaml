@@ -31,6 +31,11 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=12345678"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 networks:
   bmi-calculator-network:
