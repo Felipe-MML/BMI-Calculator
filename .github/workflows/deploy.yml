@@ -30,7 +30,8 @@ jobs:
     name: Build and Push
     needs: test
     runs-on: ubuntu-latest
-    outputs: ${{ steps.generate_tag.outputs.sha }}
+    outputs: 
+      docker_tag: ${{ steps.generate_tag.outputs.sha }}
     
     steps:
       - name: Checkout código
