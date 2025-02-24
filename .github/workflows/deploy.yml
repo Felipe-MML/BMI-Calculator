@@ -61,6 +61,18 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Copy docker-compose file via SSH
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST_BMISERVER }}
+          username: ${{ secrets.USERNAME_BMISERVER }}
+          password: ${{ secrets.PASSWORD_BMISERVER }}
+          source: "docker-compose.yaml"
+          target: "~/"
+    
       - name: Deploy to DigitalOcean Droplet
         uses: appleboy/ssh-action@master
         with:
