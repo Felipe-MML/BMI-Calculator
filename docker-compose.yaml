@@ -2,7 +2,9 @@ version: '3.9'
 
 services:
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.api
     container_name: bmi-calculator
     image: felipemaras20/bmi-calculator:${DOCKER_IMAGE_TAG}
     ports:
@@ -10,13 +12,13 @@ services:
     env_file:
       - .env
     networks:
-      bmi-calculator-network:
-    volumes:
-      - .:/usr/src/app
+      - bmi-calculator-network
     depends_on:
       - database
 
   database:
+    # Verifique se realmente existe uma tag mysql:9.1.0
+    # Caso contrário, use "mysql:8.0" ou similar
     image: mysql:9.1.0
     container_name: bmi-calculator-database
     environment:
@@ -28,11 +30,11 @@ services:
     ports:
       - "3306:3306"
     networks:
-      bmi-calculator-network:
+      - bmi-calculator-network
     volumes:
       - db_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      
+
 networks:
   bmi-calculator-network:
     driver: bridge
