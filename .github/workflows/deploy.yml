@@ -64,6 +64,16 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
+      - name: Copy Dockerfile via SSH
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST_BMISERVER }}
+          username: ${{ secrets.USERNAME_BMISERVER }}
+          password: ${{ secrets.PASSWORD_BMISERVER }}
+          source: "Dockerfile"
+          target: "~/"
+
+
       - name: Copy docker-compose file via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
