@@ -12,8 +12,6 @@ services:
       bmi-calculator-network:
     depends_on:
       - database
-    volumes:
-      - .:/app
 
   database:
     image: mysql:9.1.0
