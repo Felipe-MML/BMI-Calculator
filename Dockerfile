@@ -2,10 +2,10 @@
 FROM node:18 AS build
 
 # Definir o diretório de trabalho no container
-
+WORKDIR /usr/src/app
 
 # Copiar arquivos necessários para instalar dependências
-COPY ./package.json ./package.json
+# COPY ./package.json ./package.json
 
 # Instalar as dependências
 RUN npm install
