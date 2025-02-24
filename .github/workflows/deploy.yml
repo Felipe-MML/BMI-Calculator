@@ -52,7 +52,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.BMI_DOCKERHUB_USERNAME }}/bmi-calculator:${{ steps.generate_tag.outputs.sha }} -f Dockerfile .
+          docker build -t ${{ secrets.BMI_DOCKERHUB_USERNAME }}/bmi-calculator:${{ steps.generate_tag.outputs.sha }} -f Dockerfile.api .
           docker push ${{ secrets.BMI_DOCKERHUB_USERNAME }}/bmi-calculator:${{ steps.generate_tag.outputs.sha }}
           
       
