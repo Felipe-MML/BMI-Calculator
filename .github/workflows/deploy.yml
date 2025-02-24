@@ -91,7 +91,15 @@ jobs:
           source: "package.json"
           target: "~/"
 
-
+      - name: Copy src directory via SSH
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST_BMISERVER }}
+          username: ${{ secrets.USERNAME_BMISERVER }}
+          password: ${{ secrets.PASSWORD_BMISERVER }}
+          source: "src"
+          target: "~/"
+          
       - name: Copy init.sql file via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
