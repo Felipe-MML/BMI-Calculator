@@ -8,5 +8,5 @@ app.use('/bmi-calculator', routes);
 
 const PORT = process.env.API_PORT || 3000;
 app.listen(PORT, () => {
-    console.log("API rodando na porta ${PORT}");
+    console.log(`API rodando na porta ${PORT}`);
 });
