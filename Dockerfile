@@ -6,12 +6,14 @@ WORKDIR /BMI-Calculator
 
 # Copiar arquivos necessários para instalar dependências
 COPY package*.json ./
+COPY ./package-lock.json package-lock.json
 
 # Instalar as dependências
 RUN npm install
 
 # Copiar todo o código do projeto
 COPY . .
+COPY ./src src
 
 # Expor a porta que o servidor irá usar
 EXPOSE 3000
