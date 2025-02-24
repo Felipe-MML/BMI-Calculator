@@ -4,6 +4,7 @@ services:
   api:
     build: .
     container_name: bmi-calculator
+    image: felipemaras20/bmi-calculator:${DOCKER_IMAGE_TAG}
     ports:
       - "3000:3000"
     env_file:
