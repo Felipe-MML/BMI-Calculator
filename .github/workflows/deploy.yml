@@ -70,7 +70,7 @@ jobs:
           host: ${{ secrets.HOST_BMISERVER }}
           username: ${{ secrets.USERNAME_BMISERVER }}
           password: ${{ secrets.PASSWORD_BMISERVER }}
-          source: "Dockerfile"
+          source: "Dockerfile.api"
           target: "~/"
 
       - name: Copy docker-compose file via SSH
