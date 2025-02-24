@@ -1,17 +1,17 @@
-# Usar uma imagem oficial do Node.js
-FROM node:18 AS build
+# Usar imagem oficial do Node.js (versão 18)
+FROM node:18
 
 # Definir o diretório de trabalho no container
 WORKDIR /usr/src/app
 
-# Copiar arquivos necessários para instalar dependências
-COPY ./package.json package.json
+# Copiar package.json e package-lock.json (se existir)
+COPY package*.json ./
 
 # Instalar as dependências
 RUN npm install
 
-# Copiar todo o código do projeto
-# COPY . .
+# Copiar todo o restante do código para dentro da imagem
+COPY . .
 
 # Expor a porta que o servidor irá usar
 EXPOSE 3000
