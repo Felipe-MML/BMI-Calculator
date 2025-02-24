@@ -73,17 +73,6 @@ jobs:
           source: "Dockerfile"
           target: "~/"
 
-      - name: Copy application files via SSH
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.HOST_BMISERVER }}
-          username: ${{ secrets.USERNAME_BMISERVER }}
-          password: ${{ secrets.PASSWORD_BMISERVER }}
-          source: "package.json"
-          target: "~/"
-
-
-
       - name: Copy docker-compose file via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
