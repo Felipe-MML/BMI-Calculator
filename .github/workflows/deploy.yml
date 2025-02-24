@@ -70,7 +70,7 @@ jobs:
           host: ${{ secrets.HOST_BMISERVER }}
           username: ${{ secrets.USERNAME_BMISERVER }}
           password: ${{ secrets.PASSWORD_BMISERVER }}
-          source: "docker-compose.yaml"
+          source: "./docker-compose.yaml"
           target: "~/"
 
       - name: Copy init.sql file via SSH
@@ -79,7 +79,7 @@ jobs:
           host: ${{ secrets.secrets.HOST_BMISERVER }}
           username: ${{ secrets.USERNAME_BMISERVER }}
           password: ${{ secrets.PASSWORD_BMISERVER }}
-          source: "init.sql"
+          source: "./init.sql"
           target: "~/"     
     
       - name: Deploy to DigitalOcean Droplet
