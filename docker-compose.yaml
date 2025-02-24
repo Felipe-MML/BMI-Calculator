@@ -11,6 +11,8 @@ services:
       - .env
     networks:
       bmi-calculator-network:
+    volumes:
+      - .:/usr/src/app
     depends_on:
       - database
 
