@@ -5,7 +5,7 @@ FROM node:18 AS build
 WORKDIR /usr/src/app
 
 # Copiar arquivos necessários para instalar dependências
-COPY package*.json ./
+COPY package.json package.json 
 COPY ./package-lock.json package-lock.json
 
 # Instalar as dependências
