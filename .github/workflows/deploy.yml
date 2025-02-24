@@ -70,7 +70,7 @@ jobs:
           host: ${{ secrets.HOST_BMISERVER }}
           username: ${{ secrets.USERNAME_BMISERVER }}
           password: ${{ secrets.PASSWORD_BMISERVER }}
-          source: "./docker-compose.yaml"
+          source: "./docker-compose.yml"
           target: "~/"
 
       - name: Copy init.sql file via SSH
