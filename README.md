@@ -62,7 +62,7 @@ Acesse a API em: http://localhost:3000
 ### 1. Calcular e Salvar IMC
 
 
-POST /api/imc
+POST - http://146.190.116.68:3000/bmi-calculator/imc/
 
 {
 "nome": "João",
@@ -72,16 +72,12 @@ POST /api/imc
 
 ### 2. Listar Todos os Registros
 
-   GET /api/imc
+   GET http://146.190.116.68:3000/bmi-calculator/imc/
 
 ### 3. Buscar Registro por ID
 
-   GET /api/imc/:id
+   GET - http://146.190.116.68:3000/bmi-calculator/imc/{ID}
 
 ### 4. Atualizar Registro
 
-   PUT /api/imc/:id
-
-### 5. deleter Registro
-
-   GET /api/imcDelete/:id
+   PUT - http://146.190.116.68:3000/bmi-calculator/imc/
